@@ -3,12 +3,15 @@ import 'dart:async';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flappy_bird/game/assets.dart';
+import 'package:flappy_bird/game/flappy_game.dart';
 
-class Background extends SpriteComponent {
+class Background extends SpriteComponent with HasGameRef<FlappyBird> {
   Background();
 
   @override
   Future<void> onLoad() async {
-    await Flame.images.load(Assests.background);
+    final background = await Flame.images.load(Assests.background);
+    final size = gameRef.size;
+    sprite = Sprite(background);
   }
 }
