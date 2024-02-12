@@ -11,7 +11,7 @@ class Background extends SpriteComponent with HasGameRef<FlappyBird> {
   @override
   Future<void> onLoad() async {
     final background = await Flame.images.load(Assests.background);
-    final size = gameRef.size;
+    size = gameRef.size;
     sprite = Sprite(background);
   }
 }
